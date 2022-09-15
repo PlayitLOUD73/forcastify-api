@@ -1,4 +1,4 @@
-import { getLocationFromSearch } from "./api";
+import { getLocationFromSearch } from "../api";
 
 var http = require("http");
 http
