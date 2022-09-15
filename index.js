@@ -18,7 +18,7 @@ async function getLocationFromSearch(req, res, address) {
     console.log(json[0].lat + "\n" + json[0].lon);
     data = { lat: json[0].lat, lon: json[0].lon };
     res.setHeader("Content-Type", "application/json");
-    res.send(JSON.stringify(data));
+    res.write(JSON.stringify(data));
   } else {
     console.error("HTTP-Error: " + response.status);
   }
