@@ -19,11 +19,11 @@ async function getLocationFromSearch(req, res, address) {
     data = { lat: json[0].lat, lon: json[0].lon };
     res.setHeader("Content-Type", "application/json");
     res.send(JSON.stringify(data));
-    return;
   } else {
     console.error("HTTP-Error: " + response.status);
-    return;
   }
+  req.end();
+  return;
 }
 
 http
@@ -32,6 +32,5 @@ http
     if (req.url === "/api/location-request") {
       getLocationFromSearch(req, res, "Empire State Building");
     }
-    res.end();
   })
   .listen(process.env.PORT || 3000);
