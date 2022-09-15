@@ -22,7 +22,7 @@ async function getLocationFromSearch(req, res, address) {
   } else {
     console.error("HTTP-Error: " + response.status);
   }
-  req.end();
+  res.end();
   return;
 }
 
