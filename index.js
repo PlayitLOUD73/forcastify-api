@@ -16,7 +16,7 @@ async function getLocationFromSearch(address) {
   if (response.ok) {
     json = await response.json();
     console.log(json[0].lat + "\n" + json[0].lon);
-    ret = "{lat: " + json[0].lat + ", long: " + json[0].lon + "}";
+    ret = { lat: json[0].lat, long: json[0].lon };
   } else {
     console.error("HTTP-Error: " + response.status);
   }
@@ -28,8 +28,8 @@ http
   .createServer(function (req, res) {
     console.log(`Just got a request at ${req.url}!`);
     if (req.url === "/api/location-request") {
-      var json = getLocationFromSearch("Empire State Building");
-      res.write(json);
+      let json = getLocationFromSearch("Empire State Building");
+      res.write(JSON.stringify(json));
     }
     res.end();
   })
