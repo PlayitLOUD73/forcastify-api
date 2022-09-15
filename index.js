@@ -1,4 +1,4 @@
-var PAT = process.env.LocationIQKey;
+const PAT = process.env.LocationIQKey;
 
 import fetch from "node-fetch";
 import http from "http";
