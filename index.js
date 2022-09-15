@@ -26,7 +26,7 @@ http
     console.log(`Just got a request at ${req.url}!`);
     if (req.url === "/api/location-request") {
       var json = getLocationFromSearch("206 Green Chase W");
-      res.write(json);
+      res.write(JSON.stringify(json));
     }
     res.end();
   })
