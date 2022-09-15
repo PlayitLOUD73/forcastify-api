@@ -1,6 +1,7 @@
 var PAT = process.env.LocationIQKey;
 
 import * as fetch from "node-fetch";
+import http from "http";
 
 function getLocationFromSearch(props) {
   let url =
@@ -20,7 +21,6 @@ function getLocationFromSearch(props) {
   return { lat: json[0].lat, lon: json[0].lon };
 }
 
-var http = require("http");
 http
   .createServer(function (req, res) {
     console.log(`Just got a request at ${req.url}!`);
