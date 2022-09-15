@@ -30,5 +30,6 @@ http
     if (req.url === "/api/location-request") {
       getLocationFromSearch(req, res, "Empire State Building");
     }
+    res.end();
   })
   .listen(process.env.PORT || 3000);
