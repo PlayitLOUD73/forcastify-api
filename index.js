@@ -14,11 +14,12 @@ async function getLocationFromSearch(props) {
   if (response.ok) {
     var json = await response.json();
     console.log(json[0].lat + "\n" + json[0].lon);
+    var ret = "{lat: " + json[0].lat + ", long: " + json[0].lon + "}";
   } else {
     console.error("HTTP-Error: " + response.status);
   }
 
-  return { lat: json[0].lat, lon: json[0].lon };
+  return ret;
 }
 
 http
@@ -26,7 +27,7 @@ http
     console.log(`Just got a request at ${req.url}!`);
     if (req.url === "/api/location-request") {
       var json = getLocationFromSearch("206 Green Chase W");
-      res.write(JSON.stringify(json));
+      res.write(json);
     }
     res.end();
   })
