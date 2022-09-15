@@ -4,6 +4,7 @@ import fetch from "node-fetch";
 import http from "http";
 
 async function getLocationFromSearch(props) {
+  console.log(PAT);
   let url =
     "https://us1.locationiq.com/v1/search?key=" +
     PAT +
