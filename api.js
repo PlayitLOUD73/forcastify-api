@@ -17,3 +17,5 @@ function getLocationFromSearch(props) {
 
   return { lat: json[0].lat, lon: json[0].lon };
 }
+
+export { getLocationFromSearch };
