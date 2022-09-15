@@ -15,7 +15,7 @@ function getLocationFromSearch(props) {
     var json = response.json();
     console.log(json[0].lat + "\n" + json[0].lon);
   } else {
-    alert("HTTP-Error: " + response.status);
+    console.error("HTTP-Error: " + response.status);
   }
 
   return { lat: json[0].lat, lon: json[0].lon };
