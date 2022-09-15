@@ -3,16 +3,16 @@ var PAT = process.env.LocationIQKey;
 import fetch from "node-fetch";
 import http from "http";
 
-function getLocationFromSearch(props) {
+async function getLocationFromSearch(props) {
   let url =
     "https://us1.locationiq.com/v1/search?key=" +
     PAT +
     "&q=" +
     props +
     "&format=json";
-  let response = fetch(url);
+  let response = await fetch(url);
   if (response.ok) {
-    var json = response.json();
+    var json = await response.json();
     console.log(json[0].lat + "\n" + json[0].lon);
   } else {
     console.error("HTTP-Error: " + response.status);
