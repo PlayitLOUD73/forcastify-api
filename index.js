@@ -1,5 +1,7 @@
 var PAT = process.env.LocationIQKey;
 
+const fetch = require("node-fetch");
+
 function getLocationFromSearch(props) {
   let url =
     "https://us1.locationiq.com/v1/search?key=" +
