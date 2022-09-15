@@ -1,6 +1,6 @@
 var PAT = process.env.LocationIQKey;
 
-const fetch = require("node-fetch");
+import * as fetch from "node-fetch";
 
 function getLocationFromSearch(props) {
   let url =
