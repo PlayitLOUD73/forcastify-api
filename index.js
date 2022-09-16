@@ -43,7 +43,7 @@ async function getLocationFromSearch(req, res, address) {
 http
   .createServer(function (req, res) {
     console.log(`Just got a request at ${req.url}!`);
-    if (req.url.match("/api?location-request")) {
+    if (req.url.match("/api?location-request") !== null) {
       getLocationFromSearch(req, res, "Empire State Building");
     }
   })
