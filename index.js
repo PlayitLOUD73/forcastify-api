@@ -26,10 +26,24 @@ async function getLocationFromSearch(req, res, address) {
   return;
 }
 
+/*async function getGrid(req, res, data) {
+  let location = JSON.parse(data);
+  let url =
+    "https://api.weather.gov/points/" + location.lat + "," + location.lon;
+
+  let response = await fetch(url);
+  if (response.ok) {
+    json = await response.json();
+
+  }
+
+
+}
+*/
 http
   .createServer(function (req, res) {
     console.log(`Just got a request at ${req.url}!`);
-    if (req.url === "/api/location-request") {
+    if (req.url.match("/api?location-request")) {
       getLocationFromSearch(req, res, "Empire State Building");
     }
   })
